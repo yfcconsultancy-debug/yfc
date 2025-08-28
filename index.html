@@ -171,18 +171,16 @@
   </style>
 
   <script>
- function toggleTelegramChat() {
-  const chatWindow = document.getElementById("telegram-window");
-  const iframe = document.getElementById("telegram-iframe");
-
-  if (chatWindow.style.display === "none" || chatWindow.style.display === "") {
-    chatWindow.style.display = "block";
-    iframe.src = "https://t.me/FOTCOOL_BOT";  // <-- your bot linked here
-  } else {
-    chatWindow.style.display = "none";
-    iframe.src = "";
-  }
-}
+  function openTelegram() {
+    // Mobile devices: open Telegram app
+    if (/Mobi|Android/i.test(navigator.userAgent)) {
+      window.location.href = "tg://resolve?domain=FOTCOOL_BOT"; 
+    } 
+    // Desktop: open Telegram Web in new tab
+    else {
+      window.open("https://t.me/FOTCOOL_BOT", "_blank");
+    }
+  
   </script>
 </body>
 </html>
