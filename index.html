@@ -7,7 +7,7 @@
   <title>Your freelance Consultancy</title>
 
   <meta name="description"
-    content="Freelance [Digital Marketing, webdev, android development] consultant providing expert strategies and solutions for businesses. Specializing in [Service 1], [Service 2], and [Service 3].">
+    content="Freelance [Digital Markating, webdev, androide devlopment] consultant providing expert strategies and solutions for businesses. Specializing in [Service 1], [Service 2], and [Service 3].">
   <meta name="keywords"
     content="freelance consultant, [Your Niche], business strategy, [Service 1], [Service 2], small business, startup">
   <meta name="robots" content="index, follow">
@@ -56,8 +56,7 @@
       <button class="md:hidden text-gray-600 hover:text-gray-900 focus:outline-none">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M4 6h16M4 12h16m-7 6h7"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
         </svg>
       </button>
     </nav>
@@ -85,24 +84,24 @@
     </div>
   </section>
 
-  <!-- ================= SERVICES ================= -->
+  <!-- ================= SERVICES SECTION ================= -->
   <section id="services" class="py-16 md:py-24">
-    <!-- your services content -->
+    <!-- ... your services section code (same as before) ... -->
   </section>
 
-  <!-- ================= PORTFOLIO ================= -->
+  <!-- ================= PORTFOLIO SECTION ================= -->
   <section id="portfolio" class="bg-gray-100 py-16 md:py-24">
-    <!-- your portfolio content -->
+    <!-- ... your portfolio section code (same as before) ... -->
   </section>
 
-  <!-- ================= ABOUT ================= -->
+  <!-- ================= ABOUT SECTION ================= -->
   <section id="about" class="py-16 md:py-24">
-    <!-- your about content -->
+    <!-- ... your about section code (same as before) ... -->
   </section>
 
-  <!-- ================= CONTACT ================= -->
+  <!-- ================= CONTACT SECTION ================= -->
   <section id="contact" class="bg-gray-100 py-16 md:py-24">
-    <!-- your contact form -->
+    <!-- ... your contact form code (same as before) ... -->
   </section>
 
   <!-- ================= FOOTER ================= -->
@@ -118,11 +117,17 @@
   </footer>
 
   <!-- ================= TELEGRAM FLOATING CHAT ================= -->
-  <button id="telegram-btn" onclick="openTelegram()">
-    💬 Chat with us
-  </button>
+  <div id="telegram-chat-widget">
+    <button id="telegram-btn" onclick="toggleTelegramChat()">
+      💬 Chat with us
+    </button>
+    <div id="telegram-window">
+      <iframe id="telegram-iframe" src="" frameborder="0"></iframe>
+    </div>
+  </div>
 
   <style>
+    /* Floating button */
     #telegram-btn {
       position: fixed;
       bottom: 20px;
@@ -138,25 +143,46 @@
       z-index: 10000;
       transition: background 0.3s;
     }
-
     #telegram-btn:hover {
       background: #006b99;
+    }
+
+    /* Chat window */
+    #telegram-window {
+      display: none;
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      width: 350px;
+      height: 500px;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
+      z-index: 10000;
+    }
+
+    /* iFrame */
+    #telegram-iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
     }
   </style>
 
   <script>
-    function openTelegram() {
-      // Mobile: open Telegram app
-      if (/Mobi|Android/i.test(navigator.userAgent)) {
-        window.location.href = "tg://resolve?domain=FOTCOOL_BOT";
-      }
-      // Desktop: open Telegram Web
-      else {
-        window.open("https://t.me/FOTCOOL_BOT", "_blank");
+    function toggleTelegramChat() {
+      const chatWindow = document.getElementById("telegram-window");
+      const iframe = document.getElementById("telegram-iframe");
+
+      if (chatWindow.style.display === "none" || chatWindow.style.display === "") {
+        chatWindow.style.display = "block";
+        iframe.src = "https://t.me/YourBotUsername"; // <-- replace with your bot username
+      } else {
+        chatWindow.style.display = "none";
+        iframe.src = "";
       }
     }
   </script>
-
 </body>
 </html>
-
