@@ -40,6 +40,7 @@
 </head>
 
 <body>
+  <!-- ================= HEADER ================= -->
   <header class="bg-white sticky top-0 z-50 shadow-md">
     <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
       <a href="#" class="text-2xl font-bold text-gray-900">
@@ -55,14 +56,13 @@
       <button class="md:hidden text-gray-600 hover:text-gray-900 focus:outline-none">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
-          </path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
         </svg>
       </button>
     </nav>
   </header>
 
-  <!-- Hero Section -->
+  <!-- ================= HERO SECTION ================= -->
   <section class="bg-gray-100 py-24 md:py-32">
     <div class="container mx-auto px-6 text-center">
       <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight">
@@ -84,27 +84,27 @@
     </div>
   </section>
 
-  <!-- Services -->
+  <!-- ================= SERVICES SECTION ================= -->
   <section id="services" class="py-16 md:py-24">
-    <!-- ... your existing service cards ... -->
+    <!-- ... your services section code (same as before) ... -->
   </section>
 
-  <!-- Portfolio -->
+  <!-- ================= PORTFOLIO SECTION ================= -->
   <section id="portfolio" class="bg-gray-100 py-16 md:py-24">
-    <!-- ... your existing portfolio cards ... -->
+    <!-- ... your portfolio section code (same as before) ... -->
   </section>
 
-  <!-- About -->
+  <!-- ================= ABOUT SECTION ================= -->
   <section id="about" class="py-16 md:py-24">
-    <!-- ... your existing about section ... -->
+    <!-- ... your about section code (same as before) ... -->
   </section>
 
-  <!-- Contact -->
+  <!-- ================= CONTACT SECTION ================= -->
   <section id="contact" class="bg-gray-100 py-16 md:py-24">
-    <!-- ... your existing contact form ... -->
+    <!-- ... your contact form code (same as before) ... -->
   </section>
 
-  <!-- Footer -->
+  <!-- ================= FOOTER ================= -->
   <footer class="bg-gray-800 text-gray-300 py-8">
     <div class="container mx-auto px-6 text-center">
       <p>&copy; 2024 Your Consultancy. All rights reserved.</p>
@@ -116,67 +116,73 @@
     </div>
   </footer>
 
-  <!-- WhatsApp Button (Mobile) -->
-  <a href="https://wa.me/918279572014?text=Hi!%20I%20want%20to%20know%20more%20about%20your%20services"
-    id="wa-mobile-btn"
-    class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition duration-300"
-    target="_blank" aria-label="Chat on WhatsApp">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="currentColor" viewBox="0 0 24 24">
-      <path
-        d="M12 0C5.371 0 0 5.371 0 12c0 2.121.553 4.184 1.605 6.004L0 24l6.18-1.575A11.94 11.94 0 0012 24c6.629 0 12-5.371 12-12S18.629 0 12 0zm0 22a9.94 9.94 0 01-5.305-1.555l-.379-.239-3.676.939.982-3.586-.246-.375A9.938 9.938 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10zm5.496-7.205c-.303-.151-1.789-.883-2.067-.984-.278-.101-.48-.151-.682.152-.202.303-.783.984-.959 1.186-.177.202-.354.228-.657.076-.303-.151-1.278-.471-2.435-1.5-.9-.802-1.508-1.79-1.685-2.093-.177-.303-.019-.467.133-.618.137-.136.303-.354.455-.532.151-.177.202-.303.303-.505.101-.202.05-.379-.025-.532-.076-.151-.682-1.646-.934-2.253-.246-.59-.497-.51-.682-.52l-.582-.01c-.202 0-.532.076-.81.379s-1.064 1.04-1.064 2.536 1.089 2.941 1.241 3.146c.152.202 2.145 3.271 5.199 4.588.727.314 1.293.501 1.735.64.728.231 1.39.198 1.911.12.583-.087 1.789-.73 2.041-1.434.252-.704.252-1.307.177-1.434-.076-.127-.278-.202-.582-.354z" />
-    </svg>
-  </a>
+  <!-- ================= TELEGRAM FLOATING CHAT ================= -->
+  <div id="telegram-chat-widget">
+    <button id="telegram-btn" onclick="toggleTelegramChat()">
+      💬 Chat with us
+    </button>
+    <div id="telegram-window">
+      <iframe id="telegram-iframe" src="" frameborder="0"></iframe>
+    </div>
+  </div>
 
-  <!-- WhatsApp Desktop Chat Widget -->
-  <script>
-    function isMobile() {
-      return /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  <style>
+    /* Floating button */
+    #telegram-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #0088cc;
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+      z-index: 10000;
+      transition: background 0.3s;
+    }
+    #telegram-btn:hover {
+      background: #006b99;
     }
 
-    if (!isMobile()) {
-      document.getElementById("wa-mobile-btn").style.display = "none"; // Hide mobile button on desktop
+    /* Chat window */
+    #telegram-window {
+      display: none;
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      width: 350px;
+      height: 500px;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
+      z-index: 10000;
+    }
 
-      const chatWidget = document.createElement("div");
-      chatWidget.innerHTML = `
-        <div id="wa-widget" style="
-          position: fixed; bottom: 80px; right: 20px; width: 300px; height: 400px;
-          background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-          display: flex; flex-direction: column; font-family: Arial, sans-serif; z-index: 9999;">
-          
-          <div style="background:#25D366; color:white; padding:10px; border-radius:12px 12px 0 0; font-weight:bold;">
-            💬 WhatsApp Chatbot
-            <span style="float:right; cursor:pointer;" onclick="document.getElementById('wa-widget').style.display='none'">✖</span>
-          </div>
-          
-          <div id="wa-messages" style="flex:1; padding:10px; overflow-y:auto; font-size:14px; background:#f5f5f5;">
-            <div style="margin-bottom:10px;"><b>Bot:</b> Hi 👋 How can I help you today?</div>
-          </div>
-          
-          <div style="display:flex; border-top:1px solid #ddd;">
-            <input id="wa-input" type="text" placeholder="Type a message..." 
-              style="flex:1; border:none; padding:10px; font-size:14px; outline:none;">
-            <button onclick="sendMessage()" style="background:#25D366; color:white; border:none; padding:10px 15px; cursor:pointer;">Send</button>
-          </div>
-        </div>
-      `;
-      document.body.appendChild(chatWidget);
+    /* iFrame */
+    #telegram-iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
 
-      window.sendMessage = function () {
-        const input = document.getElementById("wa-input");
-        const messages = document.getElementById("wa-messages");
+  <script>
+    function toggleTelegramChat() {
+      const chatWindow = document.getElementById("telegram-window");
+      const iframe = document.getElementById("telegram-iframe");
 
-        if (input.value.trim() !== "") {
-          messages.innerHTML += `<div><b>You:</b> ${input.value}</div>`;
-          setTimeout(() => {
-            messages.innerHTML += `<div><b>Bot:</b> Thanks for your message! Our team will reply shortly.</div>`;
-            messages.scrollTop = messages.scrollHeight;
-          }, 1000);
-          input.value = "";
-          messages.scrollTop = messages.scrollHeight;
-        }
-      };
+      if (chatWindow.style.display === "none" || chatWindow.style.display === "") {
+        chatWindow.style.display = "block";
+        iframe.src = "https://t.me/YourBotUsername"; // <-- replace with your bot username
+      } else {
+        chatWindow.style.display = "none";
+        iframe.src = "";
+      }
     }
   </script>
-
 </body>
 </html>
