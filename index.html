@@ -171,18 +171,18 @@
   </style>
 
   <script>
-    function toggleTelegramChat() {
-      const chatWindow = document.getElementById("telegram-window");
-      const iframe = document.getElementById("telegram-iframe");
+ function toggleTelegramChat() {
+  const chatWindow = document.getElementById("telegram-window");
+  const iframe = document.getElementById("telegram-iframe");
 
-      if (chatWindow.style.display === "none" || chatWindow.style.display === "") {
-        chatWindow.style.display = "block";
-        iframe.src = "https://t.me/FOTCOOL_BOT"; // <-- replace with your bot username
-      } else {
-        chatWindow.style.display = "none";
-        iframe.src = "";
-      }
-    }
+  if (chatWindow.style.display === "none" || chatWindow.style.display === "") {
+    chatWindow.style.display = "block";
+    iframe.src = "https://t.me/FOTCOOL_BOT";  // <-- your bot linked here
+  } else {
+    chatWindow.style.display = "none";
+    iframe.src = "";
+  }
+}
   </script>
 </body>
 </html>
